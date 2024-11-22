@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, Clock, BadgeCheck, Lock, Briefcase, Globe, HandshakeIcon } from 'lucide-react';
+import { Shield, Clock, BadgeCheck, Lock, Briefcase, Globe, HandshakeIcon, TrendingUp, Banknote } from 'lucide-react';
 
 export default function About() {
   return (
@@ -9,29 +9,29 @@ export default function About() {
           <span className="text-gold font-medium tracking-wider text-sm block mb-3">
             NUESTRA PROPUESTA DE VALOR
           </span>
-          <h2 className="text-4xl font-serif text-primary mb-6">Excelencia en Cada Operación</h2>
+          <h2 className="text-4xl font-serif text-primary mb-6">Maximizamos su Rentabilidad</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Libera Stock es sinónimo de profesionalidad y excelencia en el mercado de la alta relojería. 
-            Nuestra experiencia y solidez financiera nos permiten ofrecer el mejor servicio del sector.
+            Optimizamos la rentabilidad de su negocio transformando el stock de baja rotación en liquidez inmediata. 
+            Nuestra experiencia y solidez financiera garantizan las mejores condiciones del mercado.
           </p>
         </div>
         
         <div className="grid md:grid-cols-3 gap-12 mb-20">
           {[
             {
-              icon: Briefcase,
-              title: "Solidez Financiera",
-              description: "Respaldo económico para operaciones de cualquier volumen"
+              icon: TrendingUp,
+              title: "Optimización de Capital",
+              description: "Convertimos su stock de baja rotación en liquidez inmediata para su negocio"
             },
             {
-              icon: HandshakeIcon,
-              title: "Servicio Premium",
-              description: "Atención personalizada y asesoramiento profesional"
+              icon: Banknote,
+              title: "Valoración Premium",
+              description: "Tasaciones competitivas basadas en datos de mercado en tiempo real"
             },
             {
               icon: Globe,
-              title: "Presencia Internacional",
-              description: "Red exclusiva de distribuidores y coleccionistas premium"
+              title: "Red Internacional",
+              description: "Acceso directo a los principales mercados de alta relojería"
             }
           ].map((feature, index) => (
             <div key={index} className="bg-gray-50 p-8 rounded-lg border border-gray-100 group hover:shadow-lg transition-all">
@@ -45,19 +45,19 @@ export default function About() {
         <div className="grid md:grid-cols-2 gap-12">
           <div className="bg-primary p-8 rounded-lg text-white">
             <Shield className="h-12 w-12 text-gold mb-6" />
-            <h3 className="text-2xl font-serif mb-4">Garantías Corporativas</h3>
+            <h3 className="text-2xl font-serif mb-4">Ventajas Estratégicas</h3>
             <ul className="space-y-4">
               <li className="flex items-start space-x-3">
                 <BadgeCheck className="h-6 w-6 text-gold flex-shrink-0 mt-1" />
-                <span>Valoraciones profesionales basadas en datos de mercado</span>
+                <span>Valoraciones premium basadas en datos de mercado en tiempo real</span>
               </li>
               <li className="flex items-start space-x-3">
                 <Clock className="h-6 w-6 text-gold flex-shrink-0 mt-1" />
-                <span>Procesos ágiles y eficientes con pagos inmediatos</span>
+                <span>Liquidez inmediata para optimizar su flujo de caja</span>
               </li>
               <li className="flex items-start space-x-3">
                 <Lock className="h-6 w-6 text-gold flex-shrink-0 mt-1" />
-                <span>Protocolos estrictos de confidencialidad y seguridad</span>
+                <span>Máxima confidencialidad en cada operación</span>
               </li>
             </ul>
           </div>
@@ -66,23 +66,23 @@ export default function About() {
             <div className="flex items-start space-x-4">
               <Lock className="h-12 w-12 text-gold flex-shrink-0" />
               <div>
-                <h3 className="text-2xl font-serif text-primary mb-4">Confidencialidad Corporativa</h3>
+                <h3 className="text-2xl font-serif text-primary mb-4">Proceso Profesional</h3>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  Como líderes en el sector, entendemos la importancia crítica de la discreción 
-                  en las operaciones de alta relojería. Implementamos:
+                  Nuestro proceso está diseñado para maximizar el valor de su stock mientras 
+                  mantenemos los más altos estándares de confidencialidad:
                 </p>
                 <ul className="space-y-3 text-gray-600">
                   <li className="flex items-center space-x-2">
                     <div className="w-2 h-2 bg-gold rounded-full"></div>
-                    <span>Acuerdos de confidencialidad corporativos</span>
+                    <span>Valoración detallada de su portfolio</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <div className="w-2 h-2 bg-gold rounded-full"></div>
-                    <span>Protocolos de seguridad de nivel bancario</span>
+                    <span>Propuesta económica en 24-48 horas</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <div className="w-2 h-2 bg-gold rounded-full"></div>
-                    <span>Gestión privada de cada operación</span>
+                    <span>Transacción segura y confidencial</span>
                   </li>
                 </ul>
               </div>
