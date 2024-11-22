@@ -4,6 +4,30 @@ import { Mail, Phone, MapPin, Lock, Building2, Globe2 } from 'lucide-react';
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
 
+  const encode = (data: { [key: string]: string }) => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+    const data: { [key: string]: string } = {};
+    formData.forEach((value, key) => {
+      data[key] = value.toString();
+    });
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", ...data })
+    })
+      .then(() => setSubmitted(true))
+      .catch(error => alert(error));
+  };
+
   if (submitted) {
     return (
       <div className="py-24 bg-gray-50">
@@ -95,17 +119,7 @@ export default function Contact() {
             method="POST"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
-            onSubmit={(e) => {
-              e.preventDefault();
-              const form = e.target as HTMLFormElement;
-              fetch('/', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams(new FormData(form) as any).toString(),
-              })
-                .then(() => setSubmitted(true))
-                .catch((error) => alert('Error: ' + error));
-            }}
+            onSubmit={handleSubmit}
             className="bg-white p-8 rounded-lg shadow-sm border border-gray-100"
           >
             <input type="hidden" name="form-name" value="contact" />
