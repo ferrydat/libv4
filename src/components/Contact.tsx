@@ -4,28 +4,26 @@ import { Mail, Phone, MapPin, Lock, Building2, Globe2 } from 'lucide-react';
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
 
-  const encode = (data: { [key: string]: string }) => {
-    return Object.keys(data)
-      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&");
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const form = e.target as HTMLFormElement;
-    const formData = new FormData(form);
-    const data: { [key: string]: string } = {};
-    formData.forEach((value, key) => {
-      data[key] = value.toString();
-    });
-
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...data })
-    })
-      .then(() => setSubmitted(true))
-      .catch(error => alert(error));
+    const formData = new FormData(e.currentTarget);
+    
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams([...formData, ['form-name', 'contact']]).toString(),
+      });
+      
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      alert('Error al enviar el formulario. Por favor, inténtelo de nuevo.');
+      console.error('Form submission error:', error);
+    }
   };
 
   if (submitted) {

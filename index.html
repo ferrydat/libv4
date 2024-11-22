@@ -9,7 +9,8 @@
   </head>
   <body>
     <div id="root"></div>
-    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+    <!-- A hidden form that tells Netlify about our form structure -->
+    <form name="contact" netlify netlify-honeypot="bot-field" action="/success" hidden>
       <input type="text" name="name" />
       <input type="text" name="company" />
       <input type="email" name="email" />
